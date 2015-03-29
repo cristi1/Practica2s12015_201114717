@@ -185,7 +185,7 @@ void add(arbol *avl, int valor, nodo *padre){ //adhiere un nuevo nodo al arbol
         n->Hizq=NULL;
         n->Hder=NULL;
         avl->raiz=n;
-    }else if(valor<padre->Hizq->valor){
+    }else if(valor<padre->valor){
         if(padre->Hizq==NULL){
             nodo *n=malloc(sizeof(nodo));
             n->valor=valor;
@@ -196,7 +196,7 @@ void add(arbol *avl, int valor, nodo *padre){ //adhiere un nuevo nodo al arbol
         }else{
             add(avl,valor,padre->Hizq);
         }
-    }else if(valor>padre->Hder->valor){
+    }else if(valor>padre->valor){
         if(padre->Hder==NULL){
             nodo *n=malloc(sizeof(nodo));
             n->valor=valor;
