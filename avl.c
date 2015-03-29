@@ -1,12 +1,17 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "avl.h"
 #include "pila.h"
 
 int i=0, d=0, fe=0;
 pila *p;
 
-void recorridoInOrden(nodo *raiz){
-    
+void InOrden(nodo *raiz){
+    if(raiz!=NULL){
+        InOrden(raiz->Hizq);
+        printf("%d ",raiz->valor);
+        InOrden(raiz->Hder);
+    }
 }
 
 void ii(arbol *avl, nodo *n, nodo *n1){
