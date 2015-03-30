@@ -2,14 +2,24 @@
 #include <stdlib.h>
 #include "avl.h"
 
+void hello(){
+    printf("\nHello Cristi :)!\n");
+}
+
+void leerArchivo(char nombre[]){
+    
+}
+
 int main()
 {
-    printf("\nHello Cristi :)!\n");
     arbol *a=malloc(sizeof(arbol));
-    add(a,4,a->raiz);
-    add(a,99,a->raiz);
-
-    InOrden(a->raiz);
-    printf("\nHello Cristi :)!\n");
+    char nom[150];
+    fflush(stdin);
+    printf("\nIngrese el nombre del archivo: ");
+    scanf("%s", nom);
+    fflush(stdin);
+    printf("archivo: %s", nom);
+    hello();
     return 0;
+    
 }

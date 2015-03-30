@@ -185,6 +185,7 @@ void add(arbol *avl, int valor, nodo *padre){ //adhiere un nuevo nodo al arbol
         n->Hizq=NULL;
         n->Hder=NULL;
         avl->raiz=n;
+        //printf("%d",avl->raiz->valor);
     }else if(valor<padre->valor){
         if(padre->Hizq==NULL){
             nodo *n=malloc(sizeof(nodo));
@@ -192,6 +193,7 @@ void add(arbol *avl, int valor, nodo *padre){ //adhiere un nuevo nodo al arbol
             n->padre=padre;
             n->Hizq=NULL;
             n->Hder=NULL;
+            padre->Hizq=n;
             factorEquilibrio(avl->raiz);
         }else{
             add(avl,valor,padre->Hizq);
@@ -203,6 +205,7 @@ void add(arbol *avl, int valor, nodo *padre){ //adhiere un nuevo nodo al arbol
             n->padre=padre;
             n->Hizq=NULL;
             n->Hder=NULL;
+            padre->Hder=n;
             factorEquilibrio(avl->raiz);
         }else{
             add(avl,valor,padre->Hder);
