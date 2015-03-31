@@ -21,8 +21,26 @@ void agregar(Lista *l, int valor){
 
 void bubbleSort(Lista *l){
     if(l->primero!=NULL){
+        int n=l->ultimo->id, act, sig;
+        nodoLs *aux,*aux1,*auxu;
+        aux=l->primero;
+        auxu=l->ultimo;
+        for(int i=1;i<=n;i++){
+            while(aux!=auxu){
+                aux1=aux->sig;
+                act=aux->valor;
+                sig=aux1->valor;
+                if(act>sig){
+                    aux->valor=sig;
+                    aux1->valor=act;
+                }
+                aux=aux->sig;
+            }
+            auxu=auxu->ant;
+        }
+    }
+    
+    void imprimir(Lista *l){
         
     }
 }
-
-void 

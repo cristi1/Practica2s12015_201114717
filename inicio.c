@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "avl.h"
 
 void hello(){
@@ -27,6 +28,8 @@ void leerArchivo(char nombre[]){
 
 int main()
 {
+    clock_t i,f;
+    i=clock();
     arbol *a=malloc(sizeof(arbol));
     char nom[150];
     fflush(stdin);
