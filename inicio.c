@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "avl.h"
+#include "lista.h"
 
 void hello(){
     printf("\nHello Cristi :)!\n");
@@ -28,9 +29,22 @@ void leerArchivo(char nombre[]){
 
 int main()
 {
-    clock_t i,f;
-    i=clock();
-    arbol *a=malloc(sizeof(arbol));
+    //clock_t i,f;
+    //i=clock();
+    //arbol *a=malloc(sizeof(arbol));
+    Lista *l=malloc(sizeof(Lista));
+    agregar(l,56);
+    agregar(l,78);
+    agregar(l,23);
+    agregar(l,45);
+    agregar(l,4);
+    agregar(l,6);
+    agregar(l,3);
+    agregar(l,96);
+    imprimir(l);
+    bubbleSort(l);
+    printf("\nLista Ordenada: ");
+    imprimir(l);
     char nom[150];
     fflush(stdin);
     printf("\nIngrese el nombre del archivo: ");
