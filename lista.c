@@ -41,6 +41,13 @@ void bubbleSort(Lista *l){
     }
     
     void imprimir(Lista *l){
-        
+        nodoLs *p;
+        if(l->primero!=NULL){
+            p=l->primero;
+            while(p!=NULL){
+                printf("%d ",p->valor);
+                p=p->sig;
+            }
+        }
     }
 }

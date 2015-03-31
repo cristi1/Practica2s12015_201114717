@@ -26,6 +26,7 @@ extern "C" {
     
     void agregar(Lista *l, int valor);
     void bubbleSort(Lista *l);
+    
     void imprimir(Lista *l);
 
 #ifdef	__cplusplus
