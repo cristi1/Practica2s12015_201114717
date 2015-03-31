@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/avl.o \
 	${OBJECTDIR}/inicio.o \
+	${OBJECTDIR}/lista.o \
 	${OBJECTDIR}/pila.o
 
 
@@ -73,6 +74,11 @@ ${OBJECTDIR}/inicio.o: inicio.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/inicio.o inicio.c
+
+${OBJECTDIR}/lista.o: lista.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/lista.o lista.c
 
 ${OBJECTDIR}/pila.o: pila.c 
 	${MKDIR} -p ${OBJECTDIR}
