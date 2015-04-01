@@ -19,7 +19,7 @@ void agregar(Lista *l, int valor){
     }
 }
 
-void bubbleSort(Lista *l){
+void bubbleSort(Lista *l){////metodo para ordenar con bubblesort
     if(l->primero!=NULL){
         int act, sig;
         nodoLs *aux,*aux1,*auxu;
@@ -38,6 +38,47 @@ void bubbleSort(Lista *l){
             }
             auxu=auxu->ant;
             aux=l->primero;
+        }
+    }
+}
+
+void quickSort(Lista *l){
+    qs(l->primero,l->ultimo);
+}
+
+void qs(nodoLs *izq, nodoLs *der){//metodo para ordenar con quicksort
+    if(izq!=der){
+        nodoLs *i, *d, *temp;
+        int pivote;
+        i=izq;
+        d=der;
+        temp=izq;
+        pivote=izq->valor;
+        while(i!=d){
+            if(i==temp){
+                if(d->valor<pivote){
+                    i->valor=d->valor;
+                    i=i->sig;
+                    temp=d;
+                }else{
+                    d=d->ant;
+                }
+            }else if(d==temp){
+                if(i->valor>pivote){
+                    d->valor=i->valor;
+                    d=d->ant;
+                    temp=i;
+                }else{
+                    i=i->sig;
+                }
+            }
+        }
+        i->valor=pivote;
+        if(i->ant!=izq && i->ant!=NULL && i!=izq){
+            qs(izq,i->ant);
+        }
+        if(i->sig!=der && i->sig!=NULL && i!=der){
+            qs(i->sig,der);
         }
     }
 }
