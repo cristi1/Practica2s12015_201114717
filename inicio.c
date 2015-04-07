@@ -82,7 +82,7 @@ void grafica(int n,double time_ingreso, double time_recArbol, double time_buble,
     strcat(a_Plotear, pendiente_avl);
     strcat(a_Plotear, " title 'Inserccion en AVL'\"");
     system(a_Plotear);
-    getchar();
+    //getchar();
 
     //InOrden
     char a_Plotear2[80];
@@ -163,8 +163,8 @@ int main()
     F_ordQuick=clock();
     ordQuick=(double)(F_ordQuick-I_ordQuick)/ CLOCKS_PER_SEC;
     printf("Ordenado Quicksort:  %f segundos\n",ordQuick);
-    grafica(n,ingArbol, recArbol, ordBubble,ordQuick);
     hello();
+    grafica(n,ingArbol, recArbol, ordBubble,ordQuick);
     system("read -p 'presione cualquier tecla para continuar 'var");
     return 0;
 }
