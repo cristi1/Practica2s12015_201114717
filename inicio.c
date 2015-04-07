@@ -96,7 +96,7 @@ void grafica(int n,double time_ingreso, double time_recArbol, double time_buble,
     strcat(a_Plotear2, cant_datos);
     strcat(a_Plotear2, "*x/");
     strcat(a_Plotear2, pendiente_inorden);
-    strcat(a_Plotear, " title 'Recorrido EnOrden'\"");
+    strcat(a_Plotear2, " title 'Recorrido EnOrden'\"");
     system(a_Plotear2);
     //burbuja
     char a_Plotear3[80];
@@ -110,7 +110,7 @@ void grafica(int n,double time_ingreso, double time_recArbol, double time_buble,
     strcat(a_Plotear3, cant_datos);
     strcat(a_Plotear3, "*x/");
     strcat(a_Plotear3, pendiente_bubble);
-    strcat(a_Plotear, " title 'Ordenamiento BubbleSort'\"");
+    strcat(a_Plotear3, " title 'Ordenamiento BubbleSort'\"");
     system(a_Plotear3);
     //quicksort
     char a_Plotear4[80];
@@ -124,7 +124,7 @@ void grafica(int n,double time_ingreso, double time_recArbol, double time_buble,
     strcat(a_Plotear4, cant_datos);
     strcat(a_Plotear4, "*x/");
     strcat(a_Plotear4, pendiente_quick);
-    strcat(a_Plotear, " title 'Ordenamiento QuickSort'\"");
+    strcat(a_Plotear4, " title 'Ordenamiento QuickSort'\"");
     system(a_Plotear4);
 }
 
