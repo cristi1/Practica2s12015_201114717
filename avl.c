@@ -8,8 +8,8 @@ pila *p;
 
 void recInOrden(nodo *raiz){
     if(raiz!=NULL){
-        InOrden(raiz->Hizq);
-        InOrden(raiz->Hder);
+        recInOrden(raiz->Hizq);
+        recInOrden(raiz->Hder);
     }
 }
 

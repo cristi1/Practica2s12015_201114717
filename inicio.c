@@ -52,8 +52,8 @@ void llenarLista(char nombre[], Lista *list){
 void escribirArchivo(){
     FILE *fp;
     int num=1;
-    fp = fopen ( "pruebas.txt", "w" );
-    while(num != 1000000){
+    fp = fopen ( "pruebas3.txt", "w" );
+    while(num != 500000){
         fprintf(fp, "%d \n",num);
         num++;
     }
@@ -61,7 +61,7 @@ void escribirArchivo(){
 }
 
 int main()
-{
+{   
     //escribirArchivo();
     char nom[150];
     arbol *a=malloc(sizeof(arbol));
@@ -70,78 +70,39 @@ int main()
     fflush(stdin);
     printf("\nIngrese el nombre del archivo: ");
     scanf("%s", nom);
-    time_t I_ingArbol,F_ingArbol,I_recArbol,F_recArbol,I_ordBubble,F_ordBubble,I_ordQuick,F_ordQuick;
+    clock_t I_ingArbol,F_ingArbol,I_recArbol,F_recArbol,I_ordBubble,F_ordBubble,I_ordQuick,F_ordQuick;
     double ingArbol,recArbol,ordBubble,ordQuick;
-    time(&I_ingArbol);
-    llenarAVL(nom,a);           //llenar el arbol
-    time(&F_ingArbol);
-    ingArbol=difftime(F_ingArbol, I_ingArbol);
+    I_ingArbol= clock();
+    llenarAVL(nom,a);                                                    //llenar el arbol
+    F_ingArbol = clock();
+    ingArbol = (double)(F_ingArbol - I_ingArbol) / CLOCKS_PER_SEC;
     printf("Ingresar Arbol:  %f segundos\n",ingArbol); 
-    time(&I_recArbol);
-    recInOrden(a->raiz);           //recorrido inorden del arbol
-    time(&F_recArbol);
-    recArbol=difftime(F_recArbol, I_recArbol);
+    I_recArbol=clock();
+    recInOrden(a->raiz);                                                 //recorrido inorden del arbol
+    F_recArbol=clock();
+    recArbol = (double)(F_recArbol-I_recArbol) / CLOCKS_PER_SEC;
     printf("Recorrer Arbol:  %f segundos\n",recArbol); 
-    llenarLista(nom,l);         //llenar lista l -> ordBubble
-    llenarLista(nom,l1);        //llenar lista l1-> ordQuick
-    time(&I_ordBubble);
-    bubbleSort(l);              //ordenamiento por BubbleSort
-    time(&F_ordBubble);
-    ordBubble=difftime(F_ordBubble, I_ordBubble);
+    llenarLista(nom,l);                                                  //llenar lista l -> ordBubble
+    llenarLista(nom,l1);                                              //llenar lista l1-> ordQuick
+    I_ordBubble=clock();
+    bubbleSort(l);                                                      //ordenamiento por BubbleSort
+    F_ordBubble=clock();
+    ordBubble=(double)(F_ordBubble-I_ordBubble)/ CLOCKS_PER_SEC;
     printf("Ordenado Burbuja:  %f segundos\n",ordBubble);
-    time(&I_ordQuick);
+    I_ordQuick=clock();
     quickSort(l1);               //ordenamiento por QuickSort
-    time(&F_ordQuick);
-    ordQuick=difftime(F_ordQuick, I_ordQuick);
-    printf("Ordenado Burbuja:  %f segundos\n",ordQuick);
+    F_ordQuick=clock();
+    ordQuick=(double)(F_ordQuick-I_ordQuick)/ CLOCKS_PER_SEC;
+    printf("Ordenado Quicksort:  %f segundos\n",ordQuick);
     fflush(stdin);
     printf("Salida Recorrido Arbol: \n");
-    InOrden(a->raiz);
+    //InOrden(a->raiz);
     fflush(stdin);
     printf("\nSalida Ordenada por BubbleSort: \n");
-    imprimir(l);
+    //imprimir(l);
     printf("\nSalida Ordenada por QuickSort: \n");
-    imprimir(l1);
+    //imprimir(l1);
     hello();
     system("read -p 'presione cualquier tecla para continuar 'var");
     return 0;
-    
-    
-    
-    /*agregar(l,56);
-    agregar(l,78);
-    agregar(l,23);
-    agregar(l,45);
-    agregar(l,4);
-    agregar(l,6);
-    agregar(l,3);
-    agregar(l,96);
-    imprimir(l);
-    bubbleSort(l);
-    printf("\nLista Ordenada por bubbleSort: ");
-    imprimir(l);
-    Lista *l1=malloc(sizeof(Lista));
-    agregar(l1,1);
-    agregar(l1,30);
-    agregar(l1,25);
-    agregar(l1,2);
-    agregar(l1,3);
-    agregar(l1,10);
-    agregar(l1,50);
-    agregar(l1,70);
-    agregar(l1,82);
-    agregar(l1,96);
-    agregar(l1,100);
-    printf("\n");
-    imprimir(l1);
-    printf("\nLista Ordenada por quickSort: ");
-    quickSort(l1);
-    imprimir(l1);
-    char nom[150];
-    fflush(stdin);
-    printf("\nIngrese el nombre del archivo: ");
-    scanf("%s", nom);
-    fflush(stdin);
-    printf("archivo: %s\n", nom);
-    leerArchivo(nom);*/
 }
