@@ -6,6 +6,13 @@
 int i=0, d=0, fe=0;
 pila *p;
 
+void recInOrden(nodo *raiz){
+    if(raiz!=NULL){
+        InOrden(raiz->Hizq);
+        InOrden(raiz->Hder);
+    }
+}
+
 void InOrden(nodo *raiz){
     if(raiz!=NULL){
         InOrden(raiz->Hizq);

@@ -35,6 +35,7 @@ extern "C" {
     void id(arbol *avl, nodo *n, nodo *n1, nodo *n2);
     void di(arbol *avl, nodo *n, nodo *n1, nodo *n2);
     void InOrden(nodo *raiz);
+    void recInOrden(nodo *raiz);
 
 
 #ifdef	__cplusplus

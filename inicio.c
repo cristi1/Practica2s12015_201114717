@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "avl.h"
 #include "lista.h"
@@ -48,8 +49,20 @@ void llenarLista(char nombre[], Lista *list){
     }
 }
 
+void escribirArchivo(){
+    FILE *fp;
+    int num=1;
+    fp = fopen ( "pruebas.txt", "w" );
+    while(num != 1000000){
+        fprintf(fp, "%d \n",num);
+        num++;
+    }
+    fclose ( fp );
+}
+
 int main()
 {
+    //escribirArchivo();
     char nom[150];
     arbol *a=malloc(sizeof(arbol));
     Lista *l=malloc(sizeof(Lista));
@@ -65,7 +78,7 @@ int main()
     ingArbol=difftime(F_ingArbol, I_ingArbol);
     printf("Ingresar Arbol:  %f segundos\n",ingArbol); 
     time(&I_recArbol);
-    InOrden(a->raiz);           //recorrido inorden del arbol
+    recInOrden(a->raiz);           //recorrido inorden del arbol
     time(&F_recArbol);
     recArbol=difftime(F_recArbol, I_recArbol);
     printf("Recorrer Arbol:  %f segundos\n",recArbol); 
@@ -81,7 +94,14 @@ int main()
     time(&F_ordQuick);
     ordQuick=difftime(F_ordQuick, I_ordQuick);
     printf("Ordenado Burbuja:  %f segundos\n",ordQuick);
-    
+    fflush(stdin);
+    printf("Salida Recorrido Arbol: \n");
+    InOrden(a->raiz);
+    fflush(stdin);
+    printf("\nSalida Ordenada por BubbleSort: \n");
+    imprimir(l);
+    printf("\nSalida Ordenada por QuickSort: \n");
+    imprimir(l1);
     hello();
     system("read -p 'presione cualquier tecla para continuar 'var");
     return 0;
