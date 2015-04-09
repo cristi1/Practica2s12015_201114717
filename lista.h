@@ -25,9 +25,12 @@ extern "C" {
     }Lista;
     
     void agregar(Lista *l, int valor);
-    void bubbleSort(Lista *l);
-    void quickSort(Lista *l);
-    void qs(nodoLs *izq, nodoLs *der);
+    //void bubbleSort(Lista *l);
+    //void quickSort(Lista *l);
+    //void qs(nodoLs *izq, nodoLs *der);
+    void bubbleSort(int lista[],int tam);
+    void quickSort(int lista[],int n);
+    void qs(int lista[],int limite_izq,int limite_der);
     void imprimir(Lista *l);
 
 #ifdef	__cplusplus

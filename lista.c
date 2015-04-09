@@ -19,7 +19,7 @@ void agregar(Lista *l, int valor){
     }
 }
 
-void bubbleSort(Lista *l){////metodo para ordenar con bubblesort
+/*void bubbleSort(Lista *l){////metodo para ordenar con bubblesort
     if(l->primero!=NULL){
         int act, sig;
         nodoLs *aux,*aux1,*auxu;
@@ -40,9 +40,28 @@ void bubbleSort(Lista *l){////metodo para ordenar con bubblesort
             aux=l->primero;
         }
     }
+}*/
+
+void bubbleSort(int lista[],int tam){
+    int i,j,act,sig;
+    i=0;
+    j=tam-1;
+    while(i!=j){
+        while(i!=j){
+            act=lista[i];
+            sig=lista[i+1];
+            if(act>sig){
+                lista[i]=sig;
+                lista[i+1]=act;
+            }
+            i++;
+        }
+        j--;
+        i=0;
+    }
 }
 
-void quickSort(Lista *l){
+/*void quickSort(Lista *l){
     qs(l->primero,l->ultimo);
 }
 
@@ -81,8 +100,34 @@ void qs(nodoLs *izq, nodoLs *der){//metodo para ordenar con quicksort
             qs(i->sig,der);
         }
     }
-}
+}*/
+
+void qs(int lista[],int limite_izq,int limite_der){
+    int izq,der,temporal,pivote;
+    izq=limite_izq;
+    der = limite_der;
+    pivote = lista[(izq+der)/2];
     
+    do{
+        while(lista[izq]<pivote && izq<limite_der)izq++;
+        while(pivote<lista[der] && der > limite_izq)der--;
+        if(izq <=der)
+        {
+            temporal= lista[izq];
+            lista[izq]=lista[der];
+            lista[der]=temporal;
+            izq++;
+            der--;
+        }
+    }while(izq<=der);
+    if(limite_izq<der){qs(lista,limite_izq,der);}
+    if(limite_der>izq){qs(lista,izq,limite_der);}
+}
+
+void quickSort(int lista[],int n){
+    qs(lista,0,n-1);
+}
+
 void imprimir(Lista *l){
     nodoLs *p;
     if(l->primero!=NULL){
